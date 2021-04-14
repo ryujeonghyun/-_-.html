@@ -1,0 +1,2385 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <style>
+      html{width:1100px; margin: 0 auto;}
+    	.performancebox{display: flex; justify-content: center;}
+    	.performancebox select{    border: 1px solid #333;
+        border-radius: 10px;
+        background-color: #198acb;
+        height: 50px;
+        color: white;
+        font-size: 15px;
+        width: 140px;
+        margin: 5px;
+    		text-align-last: center;
+    }
+    	.widthsetting{width:700px; margin:0 auto;}
+
+    </style>
+    <script>
+     function OnChange(){
+    	 var key = document.getElementById("performance").options[document.getElementById("performance").selectedIndex].value;
+    	 if (key == 1) {
+    		 document.getElementById("tello").style.display="";
+    	 }
+
+    		else {document.getElementById("tello").style.display="none";
+    	 }
+    	  if (key == 2) {
+    		 document.getElementById("spark").style.display="";
+    	 }
+
+    		else {document.getElementById("spark").style.display="none";
+    	 }
+    	  if (key == 3) {
+    		 document.getElementById("mavicmini").style.display="";
+    	 }
+
+    		else {document.getElementById("mavicmini").style.display="none";
+    	 }
+    	  if (key == 4) {
+    		 document.getElementById("mavicmini2").style.display="";
+    	 }
+
+    		else {document.getElementById("mavicmini2").style.display="none";
+    	 }
+    	  if (key == 5) {
+    		 document.getElementById("mavicair").style.display="";
+    	 }
+
+    		else {document.getElementById("mavicair").style.display="none";
+    	 }
+    	  if (key == 6) {
+    		 document.getElementById("mavicair2").style.display="";
+    	 }
+
+    		else {document.getElementById("mavicair2").style.display="none";
+    	 }
+    	  if (key == 7) {
+    		 document.getElementById("mavicpro").style.display="";
+    	 }
+
+    		else {document.getElementById("mavicpro").style.display="none";
+    	 }
+    	  if (key == 8) {
+    		 document.getElementById("mavicproflat").style.display="";
+    	 }
+
+    		else {document.getElementById("mavicproflat").style.display="none";
+    	 }
+    	  if (key == 9) {
+    		 document.getElementById("mavic2zoom").style.display="";
+    	 }
+
+    		else {document.getElementById("mavic2zoom").style.display="none";
+    	 }
+    	  if (key == 10) {
+    		 document.getElementById("mavic2pro").style.display="";
+    	 }
+
+    		else {document.getElementById("mavic2pro").style.display="none";
+    	 }
+    	  if (key == 11) {
+    		 document.getElementById("pantom4").style.display="";
+    	 }
+
+    		else {document.getElementById("pantom4").style.display="none";
+    	 }
+    	  if (key == 12) {
+    		 document.getElementById("pantom4ad").style.display="";
+    	 }
+
+    		else {document.getElementById("pantom4ad").style.display="none";
+    	 }
+    	  if (key == 13) {
+    		 document.getElementById("pantom4pro").style.display="";
+    	 }
+
+    		else {document.getElementById("pantom4pro").style.display="none";
+    	 }
+    	  if (key == 14) {
+    		 document.getElementById("pantom4pro2").style.display="";
+    	 }
+
+    		else {document.getElementById("pantom4pro2").style.display="none";
+    	 }
+    	   if (key == 15) {
+    		 document.getElementById("fimimini").style.display="";
+    	 }
+
+    		else {document.getElementById("fimimini").style.display="none";
+    	 }
+
+     }
+
+
+    	 function OnChange2(){
+    	 var key = document.getElementById("performance2").options[document.getElementById("performance2").selectedIndex].value;
+    	  if (key == 1) {
+    		 document.getElementById("tello.").style.display="";
+    	 }
+
+    		else {document.getElementById("tello.").style.display="none";
+    	 }
+    	  if (key == 2) {
+    		 document.getElementById("spark.").style.display="";
+    	 }
+
+    		else {document.getElementById("spark.").style.display="none";
+    	 }
+    	  if (key == 3) {
+    		 document.getElementById("mavicmini.").style.display="";
+    	 }
+
+    		else {document.getElementById("mavicmini.").style.display="none";
+    	 }
+    	  if (key == 4) {
+    		 document.getElementById("mavicmini2.").style.display="";
+    	 }
+
+    		else {document.getElementById("mavicmini2.").style.display="none";
+    	 }
+    	  if (key == 5) {
+    		 document.getElementById("mavicair.").style.display="";
+    	 }
+
+    		else {document.getElementById("mavicair.").style.display="none";
+    	 }
+    	  if (key == 6) {
+    		 document.getElementById("mavicair2.").style.display="";
+    	 }
+
+    		else {document.getElementById("mavicair2.").style.display="none";
+    	 }
+    	  if (key == 7) {
+    		 document.getElementById("mavicpro.").style.display="";
+    	 }
+
+    		else {document.getElementById("mavicpro.").style.display="none";
+    	 }
+    	  if (key == 8) {
+    		 document.getElementById("mavicproflat.").style.display="";
+    	 }
+
+    		else {document.getElementById("mavicproflat.").style.display="none";
+    	 }
+    	  if (key == 9) {
+    		 document.getElementById("mavic2zoom.").style.display="";
+    	 }
+
+    		else {document.getElementById("mavic2zoom.").style.display="none";
+    	 }
+    	  if (key == 10) {
+    		 document.getElementById("mavic2pro.").style.display="";
+    	 }
+
+    		else {document.getElementById("mavic2pro.").style.display="none";
+    	 }
+    	  if (key == 11) {
+    		 document.getElementById("pantom4.").style.display="";
+    	 }
+
+    		else {document.getElementById("pantom4.").style.display="none";
+    	 }
+    	  if (key == 12) {
+    		 document.getElementById("pantom4ad.").style.display="";
+    	 }
+
+    		else {document.getElementById("pantom4ad.").style.display="none";
+    	 }
+    	  if (key == 13) {
+    		 document.getElementById("pantom4pro.").style.display="";
+    	 }
+
+    		else {document.getElementById("pantom4pro.").style.display="none";
+    	 }
+    	  if (key == 14) {
+    		 document.getElementById("pantom4pro2.").style.display="";
+    	 }
+
+    		else {document.getElementById("pantom4pro2.").style.display="none";
+    	 }
+    		  if (key == 15) {
+    		 document.getElementById("fimimini.").style.display="";
+    	 }
+
+    		else {document.getElementById("fimimini.").style.display="none";
+    	 }
+
+     }
+
+
+    </script>
+    <div class="performance_background" style="text-align:center; width:100%;height:130px; ">
+    	<h1>드론비교하기</h1><br><br>
+    <div class="performancebox">
+    <form name="f1" style="margin:0;" onsubmit="return false;">
+      <select name="performance" id="performance" onchange="OnChange();">
+         <option value="X">드론 선택</option>
+    	   <option value="1">텔로</option>
+    	  <option value="2">스파크</option>
+         <option value="3">매빅미니</option>
+         <option value="4">매빅미니2</option>
+    	   <option value="5">매빅에어1</option>
+    	   <option value="6">매빅에어2</option>
+    	   <option value="7">매빅1프로</option>
+    	   <option value="8">매빅1프로 플래티넘</option>
+    	   <option value="9">매빅2 줌</option>
+    	   <option value="10">매빅2 프로</option>
+    	  <option value="11">팬텀4</option>
+    	  <option value="12">팬텀4 어드밴스</option>
+    	  <option value="13">팬텀4 프로</option>
+    	  <option value="14">팬텀4 프로V2.0</option>
+    	   <option value="15">피미미니</option>
+      </select>
+    </form>
+
+
+    <form name="f1" style="margin:0;" onsubmit="return false;">
+      <select name="performance2" id="performance2" onchange="OnChange2();">
+         <option value="X">드론 선택</option>
+    	    <option value="1">텔로</option>
+    	  <option value="2">스파크</option>
+         <option value="3">매빅미니</option>
+         <option value="4">매빅미니2</option>
+    	   <option value="5">매빅에어1</option>
+    	   <option value="6">매빅에어2</option>
+    	   <option value="7">매빅1프로</option>
+    	   <option value="8">매빅1프로 플래티넘</option>
+    	   <option value="9">매빅2 줌</option>
+    	   <option value="10">매빅2 프로</option>
+    	  <option value="11">팬텀4</option>
+    	  <option value="12">팬텀4 어드밴스</option>
+    	  <option value="13">팬텀4 프로</option>
+    	  <option value="14">팬텀4 프로V2.0</option>
+    	  <option value="15">피미미니</option>
+      </select>
+    </form>
+    </div>
+    	</div>
+    <span id="img_out2"></span>
+    <span id="img_out"></span>
+
+
+
+    <style type="text/css">
+    .tg  {border-collapse:collapse;border-spacing:0;float:left;width:59%;margin-top:10%;}
+    .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:18px;
+      overflow:hidden;padding:10px 5px;word-break:normal;}
+    .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:18px;
+      font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+    .tg .tg-eihr{   border-color: black;
+        background-color: #198acb;
+        color: #ffffff;
+        font-weight: bold;
+        text-align: center;
+        font-size: 15px;
+        width: 70px;}
+    .tg .tg-amwm{    font-weight: bold;
+        text-align: center;
+        height: 60px;
+        width: 70px;}
+    </style>
+    <style type="text/css">
+    .tg1  {border-collapse:collapse;border-spacing:0;float:right;width:41%;margin-top:10%;}
+    .tg1 td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:18px;
+      overflow:hidden;padding:10px 5px;word-break:normal;}
+    .tg1 th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:18px;
+      font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+    .tg1 .tg-amwm{    font-weight: bold;
+        text-align: center;
+        height: 60px;
+        width: 50px;}
+    </style>
+    <div class="widthsetting">
+    <div id="tello" style="display:none">
+    <table class="tg">
+    <thead>
+      <tr>
+        <th class="tg-eihr">제품명</th>
+        <th class="tg-amwm">텔로</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="tg-eihr">출시일</td>
+        <td class="tg-amwm">2018년 03월</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">출시가격</td>
+        <td class="tg-amwm">단품:132,000원<br>콤보:185,000원</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">무게</td>
+        <td class="tg-amwm">80g</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">자격증</td>
+        <td class="tg-amwm">X</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">크기</td>
+        <td class="tg-amwm">98x92.5x41(mm)</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">짐벌</td>
+        <td class="tg-amwm">X</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">화소</td>
+        <td class="tg-amwm">500만 화소</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">동영상</td>
+        <td class="tg-amwm">HD 720p 30fps</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대전송거리(FCC)</td>
+        <td class="tg-amwm">100m</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대비행시간</td>
+        <td class="tg-amwm">13분</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">장애물센서</td>
+        <td class="tg-amwm">X</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대속도</td>
+        <td class="tg-amwm">28.8km/h</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">영상전송시스템</td>
+        <td class="tg-amwm">WIFI</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">내풍가능최대풍속</td>
+        <td class="tg-amwm">알수없음</td>
+      </tr>
+    </tbody>
+    </table>
+
+    </div>
+
+    <div id="spark" style="display:none">
+    <table class="tg">
+    <thead>
+      <tr>
+        <th class="tg-eihr">제품명</th>
+        <th class="tg-amwm">스파크</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="tg-eihr">출시일</td>
+        <td class="tg-amwm">2017년 04월</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">출시가격</td>
+        <td class="tg-amwm">단품:620,000원<br>콤보:870,000원</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">무게</td>
+        <td class="tg-amwm">300g</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">자격증</td>
+        <td class="tg-amwm">4종</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">크기</td>
+        <td class="tg-amwm">143x143x55(mm)</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">짐벌</td>
+        <td class="tg-amwm">2축짐벌</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">화소</td>
+        <td class="tg-amwm">1200만 화소</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">동영상</td>
+        <td class="tg-amwm">1080p 30fps 1/2.3인치 cmos,12mp</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대전송거리(FCC)</td>
+        <td class="tg-amwm">2km</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대비행시간</td>
+        <td class="tg-amwm">16분</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">장애물센서</td>
+        <td class="tg-amwm">전방</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대속도</td>
+        <td class="tg-amwm">50km/h</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">영상전송시스템</td>
+        <td class="tg-amwm">WIFI</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">내풍가능최대풍속</td>
+        <td class="tg-amwm">보퍼트 풍력5단계<br>28.8~38.52km/h</td>
+      </tr>
+    </tbody>
+    </table>
+
+    </div>
+    <div id="mavicmini" style="display:none">
+    <table class="tg">
+    <thead>
+      <tr>
+        <th class="tg-eihr">제품명</th>
+        <th class="tg-amwm">매빅미니</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="tg-eihr">출시일</td>
+        <td class="tg-amwm">2019년 11월</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">출시가격</td>
+        <td class="tg-amwm">단품:485,000원<br>콤보:625,000원</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">무게</td>
+        <td class="tg-amwm">249g</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">자격증</td>
+        <td class="tg-amwm">X</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">크기</td>
+        <td class="tg-amwm">접었을때<br>140x81x57(mm)</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">짐벌</td>
+        <td class="tg-amwm">3축짐벌</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">화소</td>
+        <td class="tg-amwm">1200만 화소</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">동영상</td>
+        <td class="tg-amwm">2.7k/30fps 40mbps<br>1/2.3인치 cmos,12mp</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대전송거리(FCC)</td>
+        <td class="tg-amwm">4km</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대비행시간</td>
+        <td class="tg-amwm">30분</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">장애물센서</td>
+        <td class="tg-amwm">X</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대속도</td>
+        <td class="tg-amwm">46.8km/h</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">영상전송시스템</td>
+        <td class="tg-amwm">WIFI</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">내풍가능최대풍속</td>
+        <td class="tg-amwm">보퍼트 풍력4단계<br>19.8~28.44km/h</td>
+      </tr>
+    </tbody>
+    </table>
+
+    </div>
+    <div id="mavicmini2" style="display:none">
+    <table class="tg">
+    <thead>
+      <tr>
+        <th class="tg-eihr">제품명</th>
+        <th class="tg-amwm">매빅미니2</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="tg-eihr">출시일</td>
+        <td class="tg-amwm">2020년 11월</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">출시가격</td>
+        <td class="tg-amwm">단품:549,000원<br>콤보:719,000원</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">무게</td>
+        <td class="tg-amwm">249g</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">자격증</td>
+        <td class="tg-amwm">X</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">크기</td>
+        <td class="tg-amwm">접었을때<br>138x81x58(mm)</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">짐벌</td>
+        <td class="tg-amwm">3축짐벌</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">화소</td>
+        <td class="tg-amwm">1200만 화소</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">동영상</td>
+        <td class="tg-amwm">4k/30fps 100mbps<br>1/2.3인치 cmos,12mp</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대전송거리(FCC)</td>
+        <td class="tg-amwm">10km</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대비행시간</td>
+        <td class="tg-amwm">31분</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">장애물센서</td>
+        <td class="tg-amwm">X</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대속도</td>
+        <td class="tg-amwm">57.6km/h</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">영상전송시스템</td>
+        <td class="tg-amwm">오큐싱크2.0</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">내풍가능최대풍속</td>
+        <td class="tg-amwm">보퍼트 풍력5단계<br>28.8~38.52km/h</td>
+      </tr>
+    </tbody>
+    </table>
+
+    </div>
+    <div id="mavicair" style="display:none">
+    <table class="tg">
+    <thead>
+      <tr>
+        <th class="tg-eihr">제품명</th>
+        <th class="tg-amwm">매빅에어</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="tg-eihr">출시일</td>
+        <td class="tg-amwm">2018년 01월</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">출시가격</td>
+        <td class="tg-amwm">단품:990,000원<br>콤보:1,290,000원</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">무게</td>
+        <td class="tg-amwm">430g</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">자격증</td>
+        <td class="tg-amwm">4종</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">크기</td>
+        <td class="tg-amwm">접었을때<br>168x83x49(mm)</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">짐벌</td>
+        <td class="tg-amwm">3축짐벌</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">화소</td>
+        <td class="tg-amwm">1200만 화소</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">동영상</td>
+        <td class="tg-amwm">4k/30fps 100mbps<br>1/2.3인치 cmos,12mp</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대전송거리(FCC)</td>
+        <td class="tg-amwm">4km</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대비행시간</td>
+        <td class="tg-amwm">21분</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">장애물센서</td>
+        <td class="tg-amwm">전방,후방</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대속도</td>
+        <td class="tg-amwm">68.4km/h</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">영상전송시스템</td>
+        <td class="tg-amwm">WIFI</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">내풍가능최대풍속</td>
+        <td class="tg-amwm">보퍼트 풍력5단계<br>28.8~38.52km/h</td>
+      </tr>
+    </tbody>
+    </table>
+
+    </div>
+    <div id="mavicair2" style="display:none">
+    <table class="tg">
+    <thead>
+      <tr>
+        <th class="tg-eihr">제품명</th>
+        <th class="tg-amwm">매빅에어2</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="tg-eihr">출시일</td>
+        <td class="tg-amwm">2020년 05월</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">출시가격</td>
+        <td class="tg-amwm">단품:990,000원<br>콤보:1,320,000원</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">무게</td>
+        <td class="tg-amwm">570g</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">자격증</td>
+        <td class="tg-amwm">4종</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">크기</td>
+        <td class="tg-amwm">접었을때<br>180x97x74(mm)</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">짐벌</td>
+        <td class="tg-amwm">3축짐벌</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">화소</td>
+        <td class="tg-amwm">4800만 화소</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">동영상</td>
+        <td class="tg-amwm">4k/60fps 120mbps<br>1/2인치 cmos,48mp</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대전송거리(FCC)</td>
+        <td class="tg-amwm">10km</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대비행시간</td>
+        <td class="tg-amwm">34분</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">장애물센서</td>
+        <td class="tg-amwm">전방,후방</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대속도</td>
+        <td class="tg-amwm">68.4km/h</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">영상전송시스템</td>
+        <td class="tg-amwm">오큐싱크2.0</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">내풍가능최대풍속</td>
+        <td class="tg-amwm">보퍼트 풍력5단계<br>28.8~38.52km/h</td>
+      </tr>
+    </tbody>
+    </table>
+
+    </div>
+
+    <div id="mavicpro" style="display:none">
+    <table class="tg">
+    <thead>
+      <tr>
+        <th class="tg-eihr">제품명</th>
+        <th class="tg-amwm">매빅프로</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="tg-eihr">출시일</td>
+        <td class="tg-amwm">2016년 10월</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">출시가격</td>
+        <td class="tg-amwm">단품:1,230,000원<br>콤보:1,600,000원</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">무게</td>
+        <td class="tg-amwm">734g</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">자격증</td>
+        <td class="tg-amwm">4종</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">크기</td>
+        <td class="tg-amwm">접었을때<br>198x83x83(mm)</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">짐벌</td>
+        <td class="tg-amwm">3축짐벌</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">화소</td>
+        <td class="tg-amwm">1200만 화소</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">동영상</td>
+        <td class="tg-amwm">4k/30fps 60mbps<br>1/2.3인치 cmos,12.71mp</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대전송거리(FCC)</td>
+        <td class="tg-amwm">7km</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대비행시간</td>
+        <td class="tg-amwm">27분</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">장애물센서</td>
+        <td class="tg-amwm">전방</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대속도</td>
+        <td class="tg-amwm">65km/h</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">영상전송시스템</td>
+        <td class="tg-amwm">오큐싱크1.0</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">내풍가능최대풍속</td>
+        <td class="tg-amwm">보퍼트 풍력5단계<br>28.8~38.52km/h</td>
+      </tr>
+    </tbody>
+    </table>
+
+    </div>
+    <div id="mavicproflat" style="display:none">
+    <table class="tg">
+    <thead>
+      <tr>
+        <th class="tg-eihr">제품명</th>
+        <th class="tg-amwm">매빅프로플레티넘</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="tg-eihr">출시일</td>
+        <td class="tg-amwm">2017년 09월</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">출시가격</td>
+        <td class="tg-amwm">단품:1,380,000원<br>콤보:1,750,000원</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">무게</td>
+        <td class="tg-amwm">734g</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">자격증</td>
+        <td class="tg-amwm">4종</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">크기</td>
+        <td class="tg-amwm">접었을때<br>198x83x83(mm)</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">짐벌</td>
+        <td class="tg-amwm">3축짐벌</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">화소</td>
+        <td class="tg-amwm">1200만 화소</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">동영상</td>
+        <td class="tg-amwm">4k/30fps 60mbps<br>1/2.3인치 cmos,12.71mp</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대전송거리(FCC)</td>
+        <td class="tg-amwm">7km</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대비행시간</td>
+        <td class="tg-amwm">30분</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">장애물센서</td>
+        <td class="tg-amwm">전방</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대속도</td>
+        <td class="tg-amwm">65km/h</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">영상전송시스템</td>
+        <td class="tg-amwm">오큐싱크1.0</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">내풍가능최대풍속</td>
+        <td class="tg-amwm">보퍼트 풍력5단계<br>28.8~38.52km/h</td>
+      </tr>
+    </tbody>
+    </table>
+
+    </div>
+
+    <div id="mavic2zoom" style="display:none">
+    <table class="tg">
+    <thead>
+      <tr>
+        <th class="tg-eihr">제품명</th>
+        <th class="tg-amwm">매빅2줌</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="tg-eihr">출시일</td>
+        <td class="tg-amwm">2018년 08월</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">출시가격</td>
+        <td class="tg-amwm">단품:1,560,000원<br>플라이모어킷:515,000원</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">무게</td>
+        <td class="tg-amwm">905g</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">자격증</td>
+        <td class="tg-amwm">4종</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">크기</td>
+        <td class="tg-amwm">접었을때<br>214x91x84(mm)</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">짐벌</td>
+        <td class="tg-amwm">3축짐벌</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">화소</td>
+        <td class="tg-amwm">1200만 화소 <br>2배광학줌</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">동영상</td>
+        <td class="tg-amwm">4k/30fps 100mbps<br>1/2.3인치 cmos,12mp</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대전송거리(FCC)</td>
+        <td class="tg-amwm">8km</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대비행시간</td>
+        <td class="tg-amwm">31분</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">장애물센서</td>
+        <td class="tg-amwm">전방,후방,우측,좌측,상방</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대속도</td>
+        <td class="tg-amwm">72km/h</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">영상전송시스템</td>
+        <td class="tg-amwm">오큐싱크2.0</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">내풍가능최대풍속</td>
+        <td class="tg-amwm">보퍼트 풍력5단계<br>28.8~38.52km/h</td>
+      </tr>
+    </tbody>
+    </table>
+
+    </div>
+    <div id="mavic2pro" style="display:none">
+    <table class="tg">
+    <thead>
+      <tr>
+        <th class="tg-eihr">제품명</th>
+        <th class="tg-amwm">매빅2프로</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="tg-eihr">출시일</td>
+        <td class="tg-amwm">2018년 08월</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">출시가격</td>
+        <td class="tg-amwm">단품:1,890,000원<br>플라이모어킷:515,000원</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">무게</td>
+        <td class="tg-amwm">907g</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">자격증</td>
+        <td class="tg-amwm">4종</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">크기</td>
+        <td class="tg-amwm">접었을때<br>214x91x84(mm)</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">짐벌</td>
+        <td class="tg-amwm">3축짐벌</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">화소</td>
+        <td class="tg-amwm">2000만 화소 <br>핫셀블라드</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">동영상</td>
+        <td class="tg-amwm">4k/30fps 100mbps<br>1인치 cmos,20mp</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대전송거리(FCC)</td>
+        <td class="tg-amwm">8km</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대비행시간</td>
+        <td class="tg-amwm">31분</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">장애물센서</td>
+        <td class="tg-amwm">전방,후방,우측,좌측,상방</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대속도</td>
+        <td class="tg-amwm">72km/h</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">영상전송시스템</td>
+        <td class="tg-amwm">오큐싱크2.0</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">내풍가능최대풍속</td>
+        <td class="tg-amwm">보퍼트 풍력5단계<br>28.8~38.52km/h</td>
+      </tr>
+    </tbody>
+    </table>
+
+    </div>
+    <div id="pantom4" style="display:none">
+    <table class="tg">
+    <thead>
+      <tr>
+        <th class="tg-eihr">제품명</th>
+        <th class="tg-amwm">팬텀4</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="tg-eihr">출시일</td>
+        <td class="tg-amwm">2016년 03월</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">출시가격</td>
+        <td class="tg-amwm">1,850,000원</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">무게</td>
+        <td class="tg-amwm">1380g</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">자격증</td>
+        <td class="tg-amwm">4종</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">크기</td>
+        <td class="tg-amwm">248x248x190(mm)</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">짐벌</td>
+        <td class="tg-amwm">3축짐벌</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">화소</td>
+        <td class="tg-amwm">1200만 화소</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">동영상</td>
+        <td class="tg-amwm">4k/30fps 100mbps<br>1/2.3인치 cmos,12mp</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대전송거리(FCC)</td>
+        <td class="tg-amwm">5km</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대비행시간</td>
+        <td class="tg-amwm">27분</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">장애물센서</td>
+        <td class="tg-amwm">전방</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대속도</td>
+        <td class="tg-amwm">72km/h</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">영상전송시스템</td>
+        <td class="tg-amwm">라이트브릿지2</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">내풍가능최대풍속</td>
+        <td class="tg-amwm">보퍼트 풍력5단계<br>28.8~38.52km/h</td>
+      </tr>
+    </tbody>
+    </table>
+
+    </div>
+    <div id="pantom4ad" style="display:none">
+    <table class="tg">
+    <thead>
+      <tr>
+        <th class="tg-eihr">제품명</th>
+        <th class="tg-amwm">팬텀4어드밴스</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="tg-eihr">출시일</td>
+        <td class="tg-amwm">2017년 04월</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">출시가격</td>
+        <td class="tg-amwm">1,650,000원<br>플러스:2,050,000원</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">무게</td>
+        <td class="tg-amwm">1368g</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">자격증</td>
+        <td class="tg-amwm">4종</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">크기</td>
+        <td class="tg-amwm">248x248x190(mm)</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">짐벌</td>
+        <td class="tg-amwm">3축짐벌</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">화소</td>
+        <td class="tg-amwm">2000만 화소</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">동영상</td>
+        <td class="tg-amwm">4k/60fps 100mbps<br>1인치 cmos,20mp</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대전송거리(FCC)</td>
+        <td class="tg-amwm">7km</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대비행시간</td>
+        <td class="tg-amwm">30분</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">장애물센서</td>
+        <td class="tg-amwm">전방</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대속도</td>
+        <td class="tg-amwm">72km/h</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">영상전송시스템</td>
+        <td class="tg-amwm">라이트브릿지2</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">내풍가능최대풍속</td>
+        <td class="tg-amwm">보퍼트 풍력5단계<br>28.8~38.52km/h</td>
+      </tr>
+    </tbody>
+    </table>
+
+    </div>
+    <div id="pantom4pro" style="display:none">
+    <table class="tg">
+    <thead>
+      <tr>
+        <th class="tg-eihr">제품명</th>
+        <th class="tg-amwm">팬텀4프로</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="tg-eihr">출시일</td>
+        <td class="tg-amwm">2016년 11월</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">출시가격</td>
+        <td class="tg-amwm">1,850,000원<br>플러스:2,250,000원</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">무게</td>
+        <td class="tg-amwm">1388g</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">자격증</td>
+        <td class="tg-amwm">4종</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">크기</td>
+        <td class="tg-amwm">248x248x190(mm)</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">짐벌</td>
+        <td class="tg-amwm">3축짐벌</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">화소</td>
+        <td class="tg-amwm">2000만 화소</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">동영상</td>
+        <td class="tg-amwm">4k/60fps 100mbps<br>1인치 cmos,20mp</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대전송거리(FCC)</td>
+        <td class="tg-amwm">7km</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대비행시간</td>
+        <td class="tg-amwm">30분</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">장애물센서</td>
+        <td class="tg-amwm">전방,후방,좌측,우측</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대속도</td>
+        <td class="tg-amwm">72km/h</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">영상전송시스템</td>
+        <td class="tg-amwm">라이트브릿지2</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">내풍가능최대풍속</td>
+        <td class="tg-amwm">보퍼트 풍력5단계<br>28.8~38.52km/h</td>
+      </tr>
+    </tbody>
+    </table>
+
+    </div>
+
+    <div id="pantom4pro2" style="display:none">
+    <table class="tg">
+    <thead>
+      <tr>
+        <th class="tg-eihr">제품명</th>
+        <th class="tg-amwm">팬텀4프로v2.0</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="tg-eihr">출시일</td>
+        <td class="tg-amwm">2018년 05월</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">출시가격</td>
+        <td class="tg-amwm">1,850,000원<br>플러스:2,250,000원</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">무게</td>
+        <td class="tg-amwm">1375g</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">자격증</td>
+        <td class="tg-amwm">4종</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">크기</td>
+        <td class="tg-amwm">248x248x190(mm)</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">짐벌</td>
+        <td class="tg-amwm">3축짐벌</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">화소</td>
+        <td class="tg-amwm">2000만 화소</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">동영상</td>
+        <td class="tg-amwm">4k/60fps 100mbps<br>1인치 cmos,20mp</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대전송거리(FCC)</td>
+        <td class="tg-amwm">10km</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대비행시간</td>
+        <td class="tg-amwm">30분</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">장애물센서</td>
+        <td class="tg-amwm">전방,후방,좌측,우측</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대속도</td>
+        <td class="tg-amwm">72km/h</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">영상전송시스템</td>
+        <td class="tg-amwm">오큐싱크2.0</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">내풍가능최대풍속</td>
+        <td class="tg-amwm">보퍼트 풍력5단계<br>28.8~38.52km/h</td>
+      </tr>
+    </tbody>
+    </table>
+
+    </div>
+
+
+    <div id="fimimini" style="display:none">
+    <table class="tg">
+    <thead>
+      <tr>
+        <th class="tg-eihr">제품명</th>
+        <th class="tg-amwm">피미미니</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="tg-eihr">출시일</td>
+        <td class="tg-amwm">2021년 04월</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">출시가격</td>
+        <td class="tg-amwm">450,000원</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">무게</td>
+        <td class="tg-amwm">스탠다드:258g<br>프로버전:245g</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">자격증</td>
+        <td class="tg-amwm">스탠다드:4종<br>프로버전:X</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">크기</td>
+        <td class="tg-amwm">접었을때<br>145x85x56(mm)</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">짐벌</td>
+        <td class="tg-amwm">3축짐벌</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">화소</td>
+        <td class="tg-amwm">1200만 화소</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">동영상</td>
+        <td class="tg-amwm">4k/30fps 100mbps<br>1/2.6인치 cmos,12mp</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대전송거리(FCC)</td>
+        <td class="tg-amwm">8km</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대비행시간</td>
+        <td class="tg-amwm">스탠다드:30분<br>프로버전:31분</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">장애물센서</td>
+        <td class="tg-amwm">X</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">최대속도</td>
+        <td class="tg-amwm">57.6km/h</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">영상전송시스템</td>
+        <td class="tg-amwm">TDMA</td>
+      </tr>
+      <tr>
+        <td class="tg-eihr">내풍가능최대풍속</td>
+        <td class="tg-amwm">보퍼트 풍력5단계<br>28.8~38.52km/h</td>
+      </tr>
+    </tbody>
+    </table>
+
+    </div>
+
+    <!-- 여기서 부터 두번째 select 박스 -->
+
+
+    <div id="tello." style="display:none">
+    <table class="tg1">
+    <thead>
+      <tr>
+        <th class="tg-amwm">텔로</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="tg-amwm">2018년 03월</td>
+      </tr>
+      <tr>
+        <td class="tg-amwm">단품:132,000원<br>콤보:185,000원</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">80g</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">X</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">98x92.5x41(mm)</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">X</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">500만 화소</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">HD 720p 30fps</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">100m</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">13분</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">X</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">28.8km/h</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">WIFI</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">알수없음</td>
+      </tr>
+    </tbody>
+    </table>
+
+    </div>
+
+    <div id="spark." style="display:none">
+    <table class="tg1">
+    <thead>
+      <tr>
+
+        <th class="tg-amwm">스파크</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+
+        <td class="tg-amwm">2017년 04월</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">단품:620,000원<br>콤보:870,000원</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">300g</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">4종</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">143x143x55(mm)</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">2축짐벌</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">1200만 화소</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">1080p 30fps 1/2.3인치 cmos,12mp</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">2km</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">16분</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">전방</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">50km/h</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">WIFI</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">보퍼트 풍력5단계<br>28.8~38.52km/h</td>
+      </tr>
+    </tbody>
+    </table>
+
+    </div>
+    <div id="mavicmini." style="display:none">
+    <table class="tg1">
+    <thead>
+      <tr>
+
+        <th class="tg-amwm">매빅미니</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+
+        <td class="tg-amwm">2019년 11월</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">단품:485,000원<br>콤보:625,000원</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">249g</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">X</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">접었을때<br>140x81x57(mm)</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">3축짐벌</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">1200만 화소</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">2.7k/30fps 40mbps<br>1/2.3인치 cmos,12mp</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">4km</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">30분</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">X</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">46.8km/h</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">WIFI</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">보퍼트 풍력4단계<br>19.8~28.44km/h</td>
+      </tr>
+    </tbody>
+    </table>
+
+    </div>
+    <div id="mavicmini2." style="display:none">
+    <table class="tg1">
+    <thead>
+      <tr>
+
+        <th class="tg-amwm">매빅미니2</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+
+        <td class="tg-amwm">2020년 11월</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">단품:549,000원<br>콤보:719,000원</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">249g</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">X</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">접었을때<br>138x81x58(mm)</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">3축짐벌</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">1200만 화소</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">4k/30fps 100mbps<br>1/2.3인치 cmos,12mp</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">10km</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">31분</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">X</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">57.6km/h</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">오큐싱크2.0</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">보퍼트 풍력5단계<br>28.8~38.52km/h</td>
+      </tr>
+    </tbody>
+    </table>
+
+    </div>
+    <div id="mavicair." style="display:none">
+    <table class="tg1">
+    <thead>
+      <tr>
+
+        <th class="tg-amwm">매빅에어</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+
+        <td class="tg-amwm">2018년 01월</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">단품:990,000원<br>콤보:1,290,000원</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">430g</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">4종</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">접었을때<br>168x83x49(mm)</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">3축짐벌</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">1200만 화소</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">4k/30fps 100mbps<br>1/2.3인치 cmos,12mp</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">4km</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">21분</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">전방,후방</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">68.4km/h</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">WIFI</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">보퍼트 풍력5단계<br>28.8~38.52km/h</td>
+      </tr>
+    </tbody>
+    </table>
+
+    </div>
+    <div id="mavicair2." style="display:none">
+    <table class="tg1">
+    <thead>
+      <tr>
+
+        <th class="tg-amwm">매빅에어2</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+
+        <td class="tg-amwm">2020년 05월</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">단품:990,000원<br>콤보:1,320,000원</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">570g</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">4종</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">접었을때<br>180x97x74(mm)</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">3축짐벌</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">4800만 화소</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">4k/60fps 120mbps<br>1/2인치 cmos,48mp</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">10km</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">34분</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">전방,후방</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">68.4km/h</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">오큐싱크2.0</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">보퍼트 풍력5단계<br>28.8~38.52km/h</td>
+      </tr>
+    </tbody>
+    </table>
+
+    </div>
+
+    <div id="mavicpro." style="display:none">
+    <table class="tg1">
+    <thead>
+      <tr>
+
+        <th class="tg-amwm">매빅프로</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+
+        <td class="tg-amwm">2016년 10월</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">단품:1,230,000원<br>콤보:1,600,000원</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">734g</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">4종</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">접었을때<br>198x83x83(mm)</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">3축짐벌</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">1200만 화소</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">4k/30fps 60mbps<br>1/2.3인치 cmos,12.71mp</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">7km</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">27분</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">전방</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">65km/h</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">오큐싱크1.0</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">보퍼트 풍력5단계<br>28.8~38.52km/h</td>
+      </tr>
+    </tbody>
+    </table>
+
+    </div>
+    <div id="mavicproflat." style="display:none">
+    <table class="tg1">
+    <thead>
+      <tr>
+
+        <th class="tg-amwm">매빅프로플레티넘</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+
+        <td class="tg-amwm">2017년 09월</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">단품:1,380,000원<br>콤보:1,750,000원</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">734g</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">4종</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">접었을때<br>198x83x83(mm)</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">3축짐벌</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">1200만 화소</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">4k/30fps 60mbps<br>1/2.3인치 cmos,12.71mp</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">7km</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">30분</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">전방</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">65km/h</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">오큐싱크1.0</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">보퍼트 풍력5단계<br>28.8~38.52km/h</td>
+      </tr>
+    </tbody>
+    </table>
+
+    </div>
+
+    <div id="mavic2zoom." style="display:none">
+    <table class="tg1">
+    <thead>
+      <tr>
+
+        <th class="tg-amwm">매빅2줌</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+
+        <td class="tg-amwm">2018년 08월</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">단품:1,560,000원<br>플라이모어킷:515,000원</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">905g</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">4종</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">접었을때<br>214x91x84(mm)</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">3축짐벌</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">1200만 화소 <br>2배광학줌</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">4k/30fps 100mbps<br>1/2.3인치 cmos,12mp</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">8km</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">31분</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">전방,후방,우측,좌측,상방</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">72km/h</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">오큐싱크2.0</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">보퍼트 풍력5단계<br>28.8~38.52km/h</td>
+      </tr>
+    </tbody>
+    </table>
+
+    </div>
+    <div id="mavic2pro." style="display:none">
+    <table class="tg1">
+    <thead>
+      <tr>
+
+        <th class="tg-amwm">매빅2프로</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+
+        <td class="tg-amwm">2018년 08월</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">단품:1,890,000원<br>플라이모어킷:515,000원</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">907g</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">4종</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">접었을때<br>214x91x84(mm)</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">3축짐벌</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">2000만 화소 <br>핫셀블라드</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">4k/30fps 100mbps<br>1인치 cmos,20mp</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">8km</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">31분</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">전방,후방,우측,좌측,상방</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">72km/h</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">오큐싱크2.0</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">보퍼트 풍력5단계<br>28.8~38.52km/h</td>
+      </tr>
+    </tbody>
+    </table>
+
+    </div>
+    <div id="pantom4." style="display:none">
+    <table class="tg1">
+    <thead>
+      <tr>
+
+        <th class="tg-amwm">팬텀4</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+
+        <td class="tg-amwm">2016년 03월</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">1,850,000원</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">1380g</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">4종</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">248x248x190(mm)</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">3축짐벌</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">1200만 화소</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">4k/30fps 100mbps<br>1/2.3인치 cmos,12mp</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">5km</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">27분</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">전방</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">72km/h</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">라이트브릿지2</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">보퍼트 풍력5단계<br>28.8~38.52km/h</td>
+      </tr>
+    </tbody>
+    </table>
+
+    </div>
+    <div id="pantom4ad." style="display:none">
+    <table class="tg1">
+    <thead>
+      <tr>
+
+        <th class="tg-amwm">팬텀4어드밴스</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+
+        <td class="tg-amwm">2017년 04월</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">1,650,000원<br>플러스:2,050,000원</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">1368g</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">4종</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">248x248x190(mm)</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">3축짐벌</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">2000만 화소</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">4k/60fps 100mbps<br>1인치 cmos,20mp</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">7km</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">30분</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">전방</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">72km/h</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">라이트브릿지2</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">보퍼트 풍력5단계<br>28.8~38.52km/h</td>
+      </tr>
+    </tbody>
+    </table>
+
+    </div>
+    <div id="pantom4pro." style="display:none">
+    <table class="tg1">
+    <thead>
+      <tr>
+
+        <th class="tg-amwm">팬텀4프로</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+
+        <td class="tg-amwm">2016년 11월</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">1,850,000원<br>플러스:2,250,000원</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">1388g</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">4종</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">248x248x190(mm)</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">3축짐벌</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">2000만 화소</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">4k/60fps 100mbps<br>1인치 cmos,20mp</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">7km</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">30분</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">전방,후방,좌측,우측</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">72km/h</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">라이트브릿지2</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">보퍼트 풍력5단계<br>28.8~38.52km/h</td>
+      </tr>
+    </tbody>
+    </table>
+
+    </div>
+
+    <div id="pantom4pro2." style="display:none">
+    <table class="tg1">
+    <thead>
+      <tr>
+
+        <th class="tg-amwm">팬텀4프로v2.0</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+
+        <td class="tg-amwm">2018년 05월</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">1,850,000원<br>플러스:2,250,000원</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">1375g</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">4종</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">248x248x190(mm)</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">3축짐벌</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">2000만 화소</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">4k/60fps 100mbps<br>1인치 cmos,20mp</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">10km</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">30분</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">전방,후방,좌측,우측</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">72km/h</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">오큐싱크2.0</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">보퍼트 풍력5단계<br>28.8~38.52km/h</td>
+      </tr>
+    </tbody>
+    </table>
+
+    </div>
+    	<div id="fimimini." style="display:none">
+    <table class="tg1">
+    <thead>
+      <tr>
+
+        <th class="tg-amwm">피미미니</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+
+        <td class="tg-amwm">2021년 04월</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">450,000원</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">스탠다드:258g<br>프로버전:245g</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">스탠다드:4종<br>프로버전:X</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">접었을때<br>145x85x56(mm)</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">3축짐벌</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">1200만 화소</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">4k/30fps 100mbps<br>1/2.6인치 cmos,12mp</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">8km</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">스탠다드:30분<br>프로버전:31분</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">X</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">57.6km/h</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">TDMA</td>
+      </tr>
+      <tr>
+
+        <td class="tg-amwm">보퍼트 풍력5단계<br>28.8~38.52km/h</td>
+      </tr>
+    </tbody>
+    </table>
+
+    </div>
+
+    </div>
+  </body>
+</html>

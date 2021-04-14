@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+<style>
+  html{width:1100px;margin:0 auto;}
+	select{ font-size:20px;font-weight:bold; color:#3a93d1; background-color:#fff; width:300px; height:30px;text-align-last: center;  border: 1px solid #333; border-radius:10px;}
+
+	.result{width:150px;height:1000px;padding-top:30px;}
+	.selection1{position:relative; top:229px; left:100px;}
+	.selection2{position:relative; top:329px; right:204px; }
+
+
+	h1{text-align:center;}
+	.sub{font-size:15px; color:#333; font-weight: bold; border:3px solid grey;}
+
+</style>
+
+<p style="font-size:50px; text-align:center; font-weight:bold; border-bottom:2px solid #333;">기기변경 신청하기 </p><br><br>
+<br><br>
+
+
+<div class="changeprocess">
+	<img src="changeprocess.jpg" style="width:100%;"></div>
+
+
+
+<div class="changemydrone"  style="height:550px;background-image:url('changechange.jpg'); margin-right:30px;"><br><br>
+
+<select class="selection1" type="text" id="num1"  value="" >
+
+<option value=""> 내 기체 찾기 </option>
+	<option value="240000">매빅미니 단품</option>
+    <option value="320000">매빅미니 플라이모어콤보</option>
+	 <option value="180000">스파크 단품</option>
+    <option value="250000">스파크 플라이모어콤보</option>
+	<option value="350000">매빅미니2 단품</option>
+    <option value="500000">매빅미니2 플라이모어콤보</option>
+	 <option value="370000 ">매빅1프로 단품</option>
+    <option value="520000">매빅1프로 플라이모어콤보</option>
+	<option value="460000">매빅1프로 플래티넘 단품</option>
+    <option value="620000">매빅1프로 플래티넘 플라이모어콤보</option>
+	 <option value="290000">매빅에어1 단품</option>
+    <option value="420000">매빅에어1 플라이모어콤보</option>
+	<option value="690000">매빅에어2 단품</option>
+    <option value="940000">매빅에어2 플라이모어콤보</option>
+	 <option value="830000">매빅2 줌 단품</option>
+    <option value="1150000">매빅2 줌+플라이모어키트</option>
+	<option value="920000">매빅2 프로 단품</option>
+    <option value="1300000">매빅2 프로+플라이모어키트</option>
+	 <option value="400000">팬텀4</option>
+    <option value="500000">팬텀4어드밴스</option>
+	 <option value="650000">팬텀4프로</option>
+    <option value="1100000">팬텀4프로V2.0</option>
+	</select>
+
+<select class="op" id="op"style= "display:none">
+	<option value='sub'></option></select>
+
+<select class="selection2" type="text" id="num2" value="">
+	<option  value=""> 변경할 기체 찾기</option>
+	 <option value="1515000">FPV 콤보</option>
+ <option value="719000">매빅미니2 콤보</option>
+    <option value="549000">매빅미니2 단품</option>
+	 <option value="1320000">매빅에어2 콤보</option>
+    <option value="990000">매빅에어2 단품</option>
+	 <option value="1850000">팬텀4프로 v2.0</option>
+    <option value="2250000">팬텀4프로 v2.0 플러스</option>
+	 <option value="1560000">매빅2 줌 단품</option>
+    <option value="2075000">매빅2 줌+플라이모어키트</option>
+	<option value="1890000">매빅2 프로 단품</option>
+    <option value="2405000">매빅2 프로+플라이모어키트</option>
+	<option value="128000">텔로 단품</option>
+    <option value="172000">텔로 부스트 콤보</option>
+	<option value="4000000">인스파이어2</option>
+    <option value="625000">매빅미니 콤보</option>
+	 <option value="485000">매빅미니 단품</option>
+
+
+	</select>
+
+	<input type="image" src="lookresult12.png"  onclick="total( )" style="position:relative; top:420px; left:550px; z-index:1;">
+
+	<input type="text" id="num3" size="10" value="" readonly="readonly" style="position:relative; top:200px; left:50px; font-weight:bold; width:500px;color:#333;font-size:70px;height:200px;text-align:center; background-color:#e4f4f7 ;border-radius:10px; border:none;">
+	<p style="position: relative; left:980px; top:120px; font-size:50px;color:#333;">원</p>
+		<div><p style="position: relative; top:110px; left:100px; color:#333;">·마이너스 금액은 고객님이 지불하셔야하는 금액입니다.<br>·제품을 선택하신 후 우측의 기기변경가 확인하기를 눌러주세요.</p></div><br><br>
+</div>
+<br><br><br><br>
+<div>
+<iframe id="typeform"  width="100%"height="500px"src="https://dronebox668477.typeform.com/to/foyffhgr" ></iframe>
+</div>
+
+	<div>
+  <div id="box">
+            <li class="main">
+				<p style="font-size:50px; text-align:center; font-weight:bold;"> 주의사항</p>
+                <ul class="sub">
+                    <li><br>
+						1.드론박스에서는 파손,침수 상관없이 모든 상품을 기기변경 해드립니다.(중고상품 → 새상품)<br><br>
+
+2.단종되지 않은 DJI 상품으로의 기기변경만 가능합니다.<br><br>
+
+3.기체,구성품의 파손여부나 작동불량 또는 이상 증세가 검수작업에 발생된다면, 예상 견적가에서 수리비가 차감될 수 있습니다. (단순 생활기스는 차감 항목이 아닙니다.)<br><br>
+
+4.기존 구성에 빠진 구성품이 있으면, 새상품 대비 80%금액이 차감됩니다.(최종견적가가 올라갑니다.)<br><br>
+
+5.배터리의 부푼현상은 판매 불가능한 상품으로, 구성에 없는 것으로 간주됩니다.<br><br>
+6.미정품 부품 또는 기존 구성에 포함되지 않은 sd카드는 기기변경 견적가에 영향을 주지 않습니다. 제외하지 않고 보내실 경우 무상 증정으로 간주됩니다.<br><br>
+
+7.예상 기기변경 가격은 기기변경 신청해주셨을때의 기준으로 측정됩니다.<br><br>
+<p style="font-size:25px;text-align:center;border-top:2px dotted #333;">※배터리사이클 횟수에 따른 차감 기준입니다※<p>
+<p style="text-align:center;"> - 1-30회 적정가<br>
+- 30-50회 새 배터리 대비 10%차감<br>
+- 50-80회 새 배터리 대비 20% 차감<br>
+- 80-100회 새 배터리 대비 30% 차감<br></li>
+		<p>  </p></ul>
+
+        </div>
+
+
+
+
+
+
+
+
+
+	<script type="text/javascript"> //JavaScript 부분을 HTML의 <head>사이에 삽입한다.
+function total() //total()함수 부분
+
+{
+
+  var num1=document.getElementById("num1"); //<body>부분에서 num1변수를 getElementById를 이용하여 값을 가져온다.
+
+  var num1s=num1.value; // num1에서 가져온 값을 num1s에 저장해주고,
+
+  var num1b=parseInt(num1s); // 계산을 하기위해 그 값을 int형으로 바꿔준다.
+
+  var num2=document.getElementById("num2"); //위 방법과 같음..
+
+  var num2s=num2.value;
+
+  var num2b=parseInt(num2s);
+
+  var num3t;
+
+  var op=document.getElementById("op"); //역시 op값을 가져오고
+
+  var ops=op.value; //값으로 저장
+
+  switch(ops) //ops의 연산기호에 따라 case를 나눈다.
+
+  {
+
+  case "plus": num3t = num1b + num2b;  document.getElementById("num3").value=num3t; break;
+
+  case "sub": num3t = num1b - num2b; document.getElementById("num3").value=num3t; break;
+
+  case "mul": num3t = num1b * num2b; document.getElementById("num3").value=num3t; break;
+
+  case "div": num3t = num1b / num2b; document.getElementById("num3").value=num3t; break;
+
+  } //계산한 값을 num3t에 저장한 후, 값을 num3로 가져간다.
+
+}
+
+
+
+</script>
+  </body>
+</html>

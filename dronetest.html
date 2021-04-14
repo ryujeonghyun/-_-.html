@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang=ko dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+
+    <style>
+
+      html{width:1100px;margin:0 auto;}
+
+    	.quizmain{margin:0 auto;border-top: 3px solid #333;font-size:30px;width:80%;}
+    	.quizmain span{font-size:25px;padding:20px;float:left;}
+    	.quizmain h4{text-align:center;}
+    	.quizmain{background-image: url("/data/image/dronetest1234.jpg"); background-size: 1000px 1500px;}
+    	.topmain{text-align:center;background-image: url("/data/image/dronetest1234.jpg"); width: 880px;
+        margin: 0 auto; }
+        .topmain li{list-style: none;}
+     input[type=checkbox] {
+        display: none;
+    }
+
+    input[type=checkbox] + label{
+        display: inline-block;
+        cursor: pointer;
+        position: relative;
+        padding-left: 25px;
+        margin-right: 15px;
+        font-size: 13px;
+    }
+
+    input[type=checkbox]+ label:before {
+
+        content: "";
+        display: inline-block;
+
+        width: 40px;
+        height: 40px;
+
+        margin-right: 10px;
+        position: absolute;
+        left: 0;
+        top:20px;
+        background-color: #fff;
+        border-radius: 2px;
+        box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
+    }
+    input[type=checkbox]:checked + label:before {
+
+        content:url( "/data/image/30x30.png" );  /* 체크모양 */
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+        color: #fff;
+        background:#fff;
+        text-align: center;
+
+
+    }
+
+    	#answerBoard{text-align:center;     position: relative;
+        left: 100px;}
+
+    	.Myfirsttest p{text-align:center;cursor:pointer;}
+    	.Myfirsttestsub {font-size:13px;padding:50px;}
+    	.Myfirsttestsub p{text-align:center;}
+    	</style>
+    <script language="javascript">
+
+    function btn(){ alert('확인을 누르시면 재생됩니다.'); }
+
+    var delay=60; //시간설정
+    var correctAnswers=new Array("4","2","1","2","3", "4","4","4","3","3", "2","2","2","1","4", "2","4","2","1","3");  //정답
+
+    var q_num=1;
+    var timer;
+    var next;
+    var layer;
+    var clock=delay;
+    var score=0;
+    var limit=0;
+
+    function show_question(){
+        if (layer=eval("document.all.question"+q_num)){
+            layer.style.display="inline";
+            document.all.timeLeft.innerHTML=clock;
+            hide_question();
+    		 $(".Myfirsttestsub").slideUp(0);
+        } else {
+            document.all.timeLeft.innerHTML=0;
+            document.all.quizScore.innerHTML="당신은 "+(q_num-1)+"문제중 <font color=blue>"+score+"</font>개를 맞췄습니다. 합격 커트라인은  <font color=blue>28개</font>입니다.<br><br><br><br><br><br>  <input type=button id=button1 onclick=button1_click(); value= >";
+            document.all.quizScore.style.display="inline";
+    		document.querySelector('#click').style.display="none";
+    		document.querySelector('#clickbefore').style.display="none";
+        }
+    }
+    function button1_click() {
+    	 var wnd= window.open("", "new window", "width=200,height=100");
+                wnd.document.write("<html><head><title>New Window Title!</title></head><body><h1 style='font-size:12pt;padding:5px;border:1px solid black;'>Hello</h1></body></html>");
+            }
+
+
+    function hide_question(){
+        if (clock>0) {
+            document.all.timeLeft.innerHTML=clock;
+            clock--;
+            timer=setTimeout("hide_question()",1000);
+        } else {
+            clearTimeout(timer);
+            document.all.answerBoard.innerHTML="&nbsp;";
+            clock=delay;
+            layer.style.display="none";
+            q_num++;
+            show_question();
+        }
+    }
+    function hide_question1(){
+        if (clock>0) {
+            document.all.timeLeft.innerHTML=clock;
+            clock--;
+            timer=setTimeout("hide_question()",1000);
+        } else {
+            clearTimeout(timer);
+            document.all.answerBoard.innerHTML="&nbsp;";
+            clock=delay;
+            layer.style.display="none";
+            q_num--;
+            show_question();
+        }
+    }
+    function check_answer(answer){
+        if (correctAnswers[q_num-1]==answer){
+            score++;
+            document.all.answerBoard.innerHTML="<font color=blue><h4>정답입니다.</h4></font>";
+    		limit++;
+    		 clearTimeout(timer);
+    	document.querySelector('#click').addEventListener('click', () => {
+    		limit=null;
+    		clock=0;
+
+        clearTimeout(timer);
+        timer=setTimeout("hide_question()",0);
+    		 });
+    	document.querySelector('#clickbefore').addEventListener('click', () => {
+    		 limit=null;
+    		 clock=0;
+      	 	 clearTimeout(timer);
+      	 	 timer=setTimeout("hide_question1()",0);});
+    	}
+    	else if(correctAnswers[q_num-1]!== answer){
+            document.all.answerBoard.innerHTML="<h4>땡! 틀렸습니다. 정답은</h4><font color=red><h4>"+correctAnswers[q_num-1]+"번</font> 입니다.</h4>";
+    		limit++;
+    		 clearTimeout(timer);
+    			document.querySelector('#click').addEventListener('click', () => {
+    				limit=null;
+    		clock=0;
+        clearTimeout(timer);
+        timer=setTimeout("hide_question()",0);
+       });
+    	document.querySelector('#clickbefore').addEventListener('click', () => {
+    		 limit=null;
+    		 clock=0;
+      	 	 clearTimeout(timer);
+      	 	 timer=setTimeout("hide_question1()",0);});
+    	}
+    	if(limit>=2){
+    		alert('중복체크는 하지 말아주세요.')
+    		limit=null;
+    		return limit;}
+    }
+
+
+    window.onload=show_question;
+    </script>
+
+    	<div class="topmain">
+    		<ul>
+    			<li style="font-size: 40px;">2021년도 드론필기시험대비 모의고사</li><br>
+    			<li style="font-size: 80px;font-weight: 600;">드론박스 필기시험</li><br>
+    			<li style="font-size: 50px;border: 3px solid; border-radius: 30px;   width: 300px; margin: 0 auto;">4종 필기</li></ul><br><br>
+    </div>
+    	<div style="    width: 330px;float: right;">
+    	<div style= " font-size:16px;text-align:center;">제한시간 : <b><span id="timeLeft"></span></b> 초<br>
+    </div>
+
+    <div style="text-align:center;">
+    	<button onclick="javascript:btn() "style="font-size: 15px;
+        border: 1px solid #c2c2c2;
+        padding: 5px;margin:15px;"> 잠깐 멈추기 </button>
+    	</div>
+    </div>
+
+
+    <div class="quizmain">
+    <div id="answerBoard">&nbsp;</div>
+    <br>
+
+    <div id="question1" style="display:none">
+        <h4>1. 무인회전익 비행장치의 특징이 아닌 것은 무엇인가?  </h4><br>
+        <input type="checkbox" id="check" name="문제" value="yyy" onclick="check_answer('1')">
+    	<label for="check"><span>①전진비행 </span></label><br>
+       <input type="checkbox" id="check1" name="문제" value="yyy" onclick="check_answer('2')">
+    	<label for="check1"><span>②후진비행</span></label><br>
+       <input type="checkbox" id="check2" name="문제" value="yyy" onclick="check_answer('3')">
+    	<label for="check2"><span>③회전비행</span></label><br>
+       <input type="checkbox" id="check3" name="문제" value="yyy" onclick="check_answer('4')">
+    	<label for="check3"><span>④배면비행</span></label><br>
+
+    	<div><li class="Myfirsttest">
+    				<p> 해설보기</p>
+                    <ul class="Myfirsttestsub" style="display:none">
+    					<li><p>배면비행(=뒤집기 비행)</p><br>
+    </li>
+       </ul>
+    	</div>
+    <br><br>
+    </div>
+
+    <div id="question2" style="display:none">
+    <h4>2. 다음 중 '초경량비행장치의 비행안전을 확보하기 위하여 초경량배힝장치의 비행활동에 대한 제한이 필요한 공역'은?</h4><br>
+
+    <input type="checkbox" id="checkz" name="문제" value="yyy" onclick="check_answer('1')">
+    	<label for="checkz"><span>①경계구역</span></label><br>
+    <input type="checkbox" id="checkx" name="문제" value="yyy" onclick="check_answer('2')">
+    	<label for="checkx"><span>②초경량비행장치 비행제한구역</span></label><br>
+    <input type="checkbox" id="checkc" name="문제" value="yyy" onclick="check_answer('3')">
+    	<label for="checkc"><span>③훈련구역</span></label><br>
+    <input type="checkbox" id="checkv" name="문제" value="yyy" onclick="check_answer('4')">
+    	<label for="checkv"><span>④정보구역</span></label><br>
+    	 <li class="Myfirsttest">
+    				<p> 해설보기</p>
+                    <ul class="Myfirsttestsub" style="display:none">
+                        <li>경계구역 : 대규모 조종사의 훈련이나 비정상 형태의 항공활동이 수행되는 공역<br>
+    초경량비행장치 비행제한 구역 : 초경량비행장치의 비행안전을 확보하기 위하여 초경량비행장치의 비행활동에 대한 제한이 필요한 공역<br>
+    훈련구역 : 민간항공기 훈련공역. 계기비행항공기로부터 분리를 유지할 필요가 있는 공역<br>
+    정보구역 : 비행정보업무가 제공되도록 지정된 비관제 공역</li><br>
+       </ul>
+    	</div>
+
+    <div id="question3" style="display:none">
+    <h4>3. 다음 중 25kg이하인 무인비행장치만을 사용하여 초경량비행장치 사용사업을 하려는 자의 등록요건으로 옳지 않은 것은?</h4><br>
+
+    <input type="checkbox" id="checkq" name="문제" value="yyy" onclick="check_answer('1')">
+    	<label for="checkq"><span>①개인의 경우 자산평가액 3천만원 이상</span></label><br>
+    <input type="checkbox" id="checkw" name="문제" value="yyy" onclick="check_answer('2')">
+    	<label for="checkw"><span>②조종자 1명 이상</span></label><br>
+    <input type="checkbox" id="checke" name="문제" value="yyy" onclick="check_answer('3')">
+    	<label for="checke"><span>③초경량비행장치9무인비행장치) 1대 이상</span></label><br>
+    <input type="checkbox" id="checkr" name="문제" value="yyy" onclick="check_answer('4')">
+    	<label for="checkr"><span>④제 3자 보험가입</span></label><br>
+    	<div><li class="Myfirsttest">
+    				<p> 해설보기</p>
+                    <ul class="Myfirsttestsub" style="display:none; ">
+                        <li><p>항공사업법 시행령 </p>
+    ① 자본금 또는 자산평가액 ; 법인은 납입자본금 3천만원 이상, 개인은 자산평가액 4천5백만원 이상 <br>
+    ② 조종자 ; 1명 이상 <br>
+    ③ 장치 ; ULP(무인비행장치로 한정) 1대 이상 <br>
+    ④ 보험 ; 제3자 보험에 가입할 것 (해당 보험에 상응하는 공제 포함)<br>
+       </ul>
+    	</div>
+    </div>
+
+    <div id="question4" style="display:none">
+
+    <h4>4. 다음 중 초경량비행장치 사용사업 등록 결격 사유로 옳지 않은 것은? </h4><br>
+    <input type="checkbox" id="check0" name="문제" value="yyy" onclick="check_answer('1')">
+    	<label for="check0"><span>①대한민국 국민이 아닌 사람, 외국정부 또는 외국의 공공단체</span></label><br>
+    <input type="checkbox" id="check9" name="문제" value="yyy" onclick="check_answer('2')">
+    	<label for="check9"><span>②위의 ①의 어느 하나에 해당하는 자가 주식이나 지분의 3분의 1이상을 소유한 경우</span></label><br>
+    <input type="checkbox" id="check8" name="문제" value="yyy" onclick="check_answer('3')">
+    	<label for="check8"><span>③피성년후견인, 피한정후견인 또는 파산선고를 받고 복권되지 아니한 사람.</span></label><br>
+    <input type="checkbox" id="check7" name="문제" value="yyy" onclick="check_answer('4')">
+    	<label for="check7"><span>④[항공안전법]을 위반하여 금고이상의 실형을 선고받은 자</span></label><br>
+    	<div><li class="Myfirsttest">
+    				<p> 해설보기</p>
+                    <ul class="Myfirsttestsub" style="display:none">
+                        <li>- 대한민국 국민이 아닌 경우<br>
+    - 외국법인 또는 외국인이 법인 등기사항증명서상의 대표자인 법인<br>
+    - 외국인이 법인 등기사항증명서상의 임원 수의 2분의 1 이상을 차지하는 법인<br>
+    - 외국인 또는 외국법인이 주식이나 지분의 2분의 1 이상을 소유하거나 그 사업을 사실상 지배하는 법인<br>
+    - 피성년후견인, 피한정후견인 또는 파산선고를 받고 복권되지 아니한 사람<br>
+    - 「항공사업법」, 「항공안전법」, 「공항시설법」, 「항공보안법」, 「항공ㆍ철도 사고조사에 관한 법률」을 위반하여 금고 이상의 실형을 선고받고 그 집행이 끝난 날 또는 집행을 받지 아니하기로 확정된 날부터 3년이 지나지 아니한 사람 또는 금고 이상의 형의 집행유예를 선고받고 그 유예기간 중에 있는 사람
+    <br>- 결격사유 있는 사람이 임원으로 있는 법인
+    <br>- 사업등록의 취소처분을 받은 후 2년이 지나지 아니한 경우<br>
+    </li>
+       </ul>
+    	</div>
+    </div>
+
+    <div id="question5" style="display:none">
+    <h4>5. 다음은 비행중 세로축으로 뱅크시킨 기체에 나타난 현상이다. 맞는것은 무엇인가? </h4><br>
+    <input type="checkbox" id="checka" name="문제" value="yyy" onclick="check_answer('1')">
+    	<label for="checka"><span>①뱅크시킨 기체는 엔진 또는 모터가 회전하는한 속도와 관성이 있음으로 선회를 지속한다.</span></label><br>
+    <input type="checkbox" id="checkb" name="문제" value="yyy" onclick="check_answer('2')">
+    	<label for="checkb"><span>②뱅크시킨 기체는 모터가 회전하는한 속도와 관성이 있음으로 직진한다.</span></label><br>
+    <input type="checkbox" id="checkc" name="문제" value="yyy" onclick="check_answer('3')">
+    	<label for="checkc"><span>③합력의 방향이 아래를 향함으로 기수가 내려간다.</span></label><br>
+    <input type="checkbox" id="checkd" name="문제" value="yyy" onclick="check_answer('4')">
+    	<label for="checkd"><span>④뱅크를 주더라도 상반각으로 인해 복원한다.</span></label><br>
+    	<div><li class="Myfirsttest">
+    				<p> 해설보기</p>
+                    <ul class="Myfirsttestsub" style="display:none; ">
+    					<li><p></p>
+    </li>
+       </ul>
+    	</div>
+    </div>
+
+    	<div id="question6" style="display:none">
+    <h4>6. 관성측정장치(IMU)에 대한 설명으로 옳지 않은 것은? </h4><br>
+    <input type="checkbox" id="checka." name="문제" value="yyy" onclick="check_answer('1')">
+    	<label for="checka."><span>①무인비행장치의 자세각,자세각속도,가속도를 측정 및 추정</span></label><br>
+    <input type="checkbox" id="checkb.." name="문제" value="yyy" onclick="check_answer('2')">
+    	<label for="checkb.."><span>②일반적으로 가속도계, 자이로스코프, 지자기센서를 포함.</span></label><br>
+    <input type="checkbox" id="checkc..." name="문제" value="yyy" onclick="check_answer('3')">
+    	<label for="checkc..."><span>③무인비행장치의 자세를 안정화 하기 위해 활용</span></label><br>
+    <input type="checkbox" id="checkd...." name="문제" value="yyy" onclick="check_answer('4')">
+    	<label for="checkd...."><span>④진동에 매우 강인하여 진동에 큰 영향을 받지 않음</span></label><br>
+    		<div><li class="Myfirsttest">
+    				<p> 해설보기</p>
+                    <ul class="Myfirsttestsub" style="display:none">
+    					<li><p>IMU는 이동물체의 속도와 방향, 중력, 가속도를 측정하는 장치를 뜻하며, 센서기반 방식이다.<br> IMU는 진동에 민감하기 때문에 오차가 발생할 수 있다.</p>
+    </li>
+       </ul>
+    	</div>
+    </div>
+
+    	<div id="question7" style="display:none">
+    <h4>7. 기체에 작용하는 힘에 대한 설명중 비행중 기체에 작용하는 힘이 아닌 것은? </h4><br>
+    <input type="checkbox" id="checkaa" name="문제" value="yyy" onclick="check_answer('1')">
+    	<label for="checkaa"><span>①기체속도에 따라 무게중심 기준으로 상승하는 힘을 양력이라 한다.</span></label><br>
+    <input type="checkbox" id="checkbb" name="문제" value="yyy" onclick="check_answer('2')">
+    	<label for="checkbb"><span>②기체의 양력을 방해하는 힘은 중력이다.</span></label><br>
+    <input type="checkbox" id="checkcc" name="문제" value="yyy" onclick="check_answer('3')">
+    	<label for="checkcc"><span>③항력을 이기고 전진하는 힘을 추력이라고 한다.</span></label><br>
+    <input type="checkbox" id="checkdd" name="문제" value="yyy" onclick="check_answer('4')">
+    	<label for="checkdd"><span>④기체에 작용하는 힘은 CG 포인트 보다는 추력이 우선한다.</span></label><br>
+    		<div><li class="Myfirsttest">
+    				<p> 해설보기</p>
+                    <ul class="Myfirsttestsub" style="display:none">
+    					<li>① 중력 지구가 잡아당기는 힘<br>
+    ② 양력 모터와 프로펠러에 의해 중력에 반하여 공중에 떠있게 하는 힘<br>
+    ③ 추력 (추진력) 기체가 기울어지면서 해당 방향으로 움직이게 하는 힘<br>
+    ④ 항력 공기와 기체의 마찰로 인한 추력을 방해하는 힘. 주로 외력에 의해 발생<br>
+    ※ 힘이 작용하는 순서<br>
+    (중력을 이기기 위해 양력을 발생시키고, 항력을 이기기 위해 추력을 발생시킴) <br>
+    양력>중력>추력>항력<br>
+    </li>
+       </ul>
+    	</div>
+    </div>
+
+    	<div id="question8" style="display:none">
+    <h4>8. 다음 무인비행장치 조종자가 준수해야 하는 사항으로 옳은 것은? </h4><br>
+    <input type="checkbox" id="checkaaa" name="문제" value="yyy" onclick="check_answer('1')">
+    	<label for="checkaaa"><span>①에일러론의일몰 후부터 일출 전까지의 야간에 비행하는 행위</span></label><br>
+    <input type="checkbox" id="checkbbb" name="문제" value="yyy" onclick="check_answer('2')">
+    	<label for="checkbbb"><span>②주류등의 영향으로 조종업무를 정상적으로 수행할 수 없는 상태에서 조종하는 행위</span></label><br>
+    <input type="checkbox" id="checkccc" name="문제" value="yyy" onclick="check_answer('3')">
+    	<label for="checkccc"><span>③비행 중 주류 등을 섭취하거나 사용하는 행위</span></label><br>
+    <input type="checkbox" id="checkddd" name="문제" value="yyy" onclick="check_answer('4')">
+    	<label for="checkddd"><span>④무인비행장치를 육안으로 확인할 수 있는 범위에서 조종하는 행위</span></label><br>
+    		<div><li class="Myfirsttest">
+    				<p> 해설보기</p>
+                    <ul class="Myfirsttestsub" style="display:none">
+                        <li>항공안전법 제 129조(초경량비행장치 조종자 등의 준수사항) <br>
+    시행 규칙 제310조(초경량비행장치 조종자의 준수사항)<br>
+    ① 초경량비행장치 조종자는 법에 따라 다음 각 호의 어느 하나에 해당하는 행위를 하여서는 아니 된다.<br>
+    다만, 무인비행장치의 조종자에 대해서는 제4호 및 제5호를 적용하지 아니 한다.<br>
+    1. 인명이나 재산에 위험을 초래할 우려가 있는 낙하물을 투하(投下)하는 행위 <br>
+    2. 인구가 밀집된 지역이나 그 밖에 사람이 많이 모인 장소의 상공에서 인명 또는 재산에 위험을 초래할 우려가 있는 방법으로 비행하는 행위 <br><br>
+    3. 법에 따른 관제공역·통제공역·주의공역에서 비행하는 행위. 다만, 다음 각목의 행위와 지방항공청장 허가를 받은 경우는 제외한다.<br>
+    가. 군사목적으로 사용되는 초경량비행장치를 비행하는 행위나. 다음의 어느 하나에 해당하는 비행장치를 관제권 또는 비행금지구역이 아닌 곳에서 최저 비행고도(150미터) 미만의 고도에서 비행하는 행위 <br>
+    1) 무인비행기, 무인헬리 콥터 또는 무인멀티콥터 중 최대이륙중량이 25킬로그램 이하인 것 2) 무인비행선 중 연료의 무게를 제외한 자체 무게가 12킬로그램 이하, 길이가 7미터 이하인 것 <br>
+    4. 안개 등으로 인하여 지상목표물을 육안으로 식별할 수 없는 상태에서 비행 하는 행위 <br>
+    5. 비행시정 및 구름으로부터 거리기준을 위반하여 비행하는 행위<br>
+    6. 일몰 후부터 일출 전까지의 야간에 비행하는 행위. 다만, 최저비행고도(150 미터) 미만의 고도에서 운영하는 계류식 기구 또는 법에 따른 허가를 받아 비행 하는 초경량비행장치는 제외한다.(→ 야간비행 금지, 단 특별비행승인 등을 받은 경우는 가능)<br>
+    7. 「주세법」 에 따른 주류, 「마약류 관리에 관한 법률」 에 따른 마약류 또는 「화학 물질관리법」 에 따른 환각물질 등(이하 ＂주류등＂)의 영향으로 조종업무를 정상적으로 수행할 수 없는 상태에서 조종하는 행위 또는 비행 중 주류 등을 섭취 하거나 사용하는 행위 <br>
+    8. 그 밖에 비정상적인 방법으로 비행하는 행위<br>
+
+    </li>
+       </ul>
+    	</div>
+    </div>
+
+    	<div id="question9" style="display:none">
+    <h4>9. 다음 지구대기권에 대한 설명 중 옳지 않은 것은?</h4><br>
+    <input type="checkbox" id="checka2" name="문제" value="yyy" onclick="check_answer('1')">
+    	<label for="checka2"><span>①지구대기권은 물리적 특성에 따라 극외권,열권,중간권,성층권,대류권으로 나뉜다.</span></label><br>
+    <input type="checkbox" id="checkb13" name="문제" value="yyy" onclick="check_answer('2')">
+    	<label for="checkb13"><span>②대류권은 평균 높이 11km까지이며,대류 및 기상현상이 발생되는 구역이다.</span></label><br>
+    <input type="checkbox" id="checkc14" name="문제" value="yyy" onclick="check_answer('3')">
+    	<label for="checkc14"><span>③성층권은 약 11~50 km까지이며,상승할수록 온도가 강하하는 특성이 있다.</span></label><br>
+    <input type="checkbox" id="checkd15" name="문제" value="yyy" onclick="check_answer('4')">
+    	<label for="checkd15"><span>④중간권은 약 50~80km까지이며, 상승할수록 온도가 강하하는 특성이 있다.</span></label><br>
+    		<div><li class="Myfirsttest">
+    				<p> 해설보기</p>
+                    <ul class="Myfirsttestsub" style="display:none">
+    					<li>지구대기권은 물리적 특성에 따라 극외권, 열권, 중간권, 성층권, 대류권으로 나뉜다.<br>
+    대류권 : 높이 지표 ~ 약 11km, 대류 현상, 기상 현상, 전체 대기의 약 75% 존재한다. <br>
+    성층권 : 11 ~ 50km, 자외선을 흡수하는 오존층 존재, 대기가 안정하여 대류현상이 없다. <br>
+    비행기 항로로 이용, 상승할수록 온도가 상승하는 특징이 있다. <br>
+    중간권 : 높이 약 50 ~ 80km, 대류 현상은 있으나 수증기가 없기 때문에 기상 현상은 없다. <br>
+    가장 낮은 기온이 나타나며, 상승할수록 온도가 강하하는 특성이 있다. <br>
+    열권 : 논ㅍ이 약 80 ~ 1,000km, 공기가 희박하여 밤과 낮의 기온차가 크다, 오로라 현상이 관측이 되고, 인공위성의 궤도로 이용된다. <br>
+    </li>
+       </ul>
+    	</div>
+    </div>
+
+    	<div id="question10" style="display:none">
+    <h4>10.브러쉬리스(BLDC)모터에 대한 설명으로 옳지 않은 것은?  </h4><br>
+    <input type="checkbox" id="checka23" name="문제" value="yyy" onclick="check_answer('1')">
+    	<label for="checka23"><span>①모터 권선의 전자기력을 이용해 회전력 발생</span></label><br>
+    <input type="checkbox" id="checkb1234" name="문제" value="yyy" onclick="check_answer('2')">
+    	<label for="checkb1234"><span>②회전수 제어를 위해 전자변속기(ESC)가 필요.</span></label><br>
+    <input type="checkbox" id="checkc12345" name="문제" value="yyy" onclick="check_answer('3')">
+    	<label for="checkc12345"><span>③모터의 규격에 KV(속도상수)가 존재하며, 10V 인가했을 때 무부하 상태에서의 회전수를 의미</span></label><br>
+    <input type="checkbox" id="checkd123456" name="문제" value="yyy" onclick="check_answer('4')">
+    	<label for="checkd123456"><span>④KV가 작을 수록 회전수는 줄어드나 상대적으로 토크가 커짐</span></label><br>
+    		<div><li class="Myfirsttest">
+    				<p> 해설보기</p>
+                    <ul class="Myfirsttestsub" style="display:none">
+                        <li>브러시리스 직류 모터는 <br><br>
+    ① 수명이 반영구적 <br>
+    ② 고장이 거의 없음(베어링에서 주로 발생) <br>
+    ③ 안전이 중요한 큰 규모의 멀티콥터에 적합 <br>
+    ④ 전자석에 순차적으로 자성을 발생시키는 변속기가 필수적<br><br>
+    KV값은 1V 인가했을 때 무부하 생태에서의 모터의 분당회전수를 의미한다.<br>
+    </li>
+       </ul>
+    	</div>
+    </div>
+
+    	<div id="question11" style="display:none">
+    <h4>11. 다음 중 초경량비행장치 사용사업 변경신고와 관련된 내용이 아닌것은? </h4><br>
+    <input type="checkbox" id="checka33" name="문제" value="yyy" onclick="check_answer('1')">
+    	<label for="checka33"><span>①자본금 감소시 신고</span></label><br>
+    <input type="checkbox" id="checkb34" name="문제" value="yyy" onclick="check_answer('2')">
+    	<label for="checkb34"><span>②프로펠러에사유가 발생한 날로부터 15일 이내 신고</span></label><br>
+    <input type="checkbox" id="checkc35" name="문제" value="yyy" onclick="check_answer('3')">
+    	<label for="checkc35"><span>③대표자 변경시 신고</span></label><br>
+    <input type="checkbox" id="checkd36" name="문제" value="yyy" onclick="check_answer('4')">
+    	<label for="checkd36"><span>④사업범위 변경시 신고</span></label><br>
+    		<div><li class="Myfirsttest">
+    				<p> 해설보기</p>
+                    <ul class="Myfirsttestsub" style="display:none">
+                        <li>항공안전법 제123조(초경량비행장치 변경신고 등) <br>
+    ① 초경량비행장치소유자등은 신고한 초경량비행장의 용도, 소유자의 성명 등 국토교통부령으로 정하는 사항을 변경하려는 경우에는 국토교통부령으로 정하는 바에 따라 국토교통부 장관에게 변경신고를 하여야 한다.<br>
+    시행규칙 제302조(초경량비행장치 변경신고) <br>
+    ① 법에서 "초경량 비행 장치의 용도, 소유자의 성명 등 국토교통부령으로 정하는 사항"이란 다음 각 호의 어느 하나를 말한다.<br>
+    1. 초경량비행장치의 용도 <br>
+    2. 초경량비행장치 소유자등의 성명, 명칭 또는 주소 <br>
+    3. 초경량비행장치의 보관 장소<br>
+    ② 초경량비행장치소유자등은 제1항 각 호의 사항을 변경하려는 경우에는 그 사유가 있는 날부터 30일 이내에 별지 서식의 초경량비행장치 변경·이전신고서를 한국교 통안 전공단이사장에게 제출하여야 한다.<br>
+    추가적으로, 변경신고 해당 사유는 아래와 같다.<br>
+    1. 자본금의 감소<br>
+    2. 사업소의 신설 또는 변경<br>
+    3. 대표자 변경<br>
+    4. 대표자의 대표권 제한 및 그 제한의 변경<br>
+    5. 상호 변경 <br>
+    </li>
+       </ul>
+    	</div>
+    </div>
+
+    	<div id="question12" style="display:none">
+    <h4>12. 다음 중 관제권에 대한 설명으로 옳지 않은 것은?  </h4><br>
+    <input type="checkbox" id="checkaq" name="문제" value="yyy" onclick="check_answer('1')">
+    	<label for="checkaq"><span>①관제권은 계기비행항공기가 이착륙하는 공항에 설정되는 공역이다.</span></label><br>
+    <input type="checkbox" id="checkb2q" name="문제" value="yyy" onclick="check_answer('2')">
+    	<label for="checkb2q"><span>②관제권은 하나의 공항에 대해 설정하며, 다수의 공항을 포함할 수는 없다.</span></label><br>
+    <input type="checkbox" id="checkc3q" name="문제" value="yyy" onclick="check_answer('3')">
+    	<label for="checkc3q"><span>③관제권은 수평적으로 공항중심(ARP)로부터 반경 5NM까지 설정할 수 있다.</span></label><br>
+    <input type="checkbox" id="checkd4q" name="문제" value="yyy" onclick="check_answer('4')">
+    	<label for="checkd4q"><span>④관제권은 수직적으로 지표면으로부터 3,000ft 또는 5,000ft까지 설정할 수 있다.</span></label><br>
+    		<div><li class="Myfirsttest">
+    				<p> 해설보기</p>
+                    <ul class="Myfirsttestsub" style="display:none">
+                        <li>관제권은 계기비행항공기가 이륙하는 공항주위에 설정되는 공역으로 공항중심(ARP)으로부터 반경 5NM 내에 있는 원통구역과 계기출발 및도착절차를 포함하는 공역을 말하며 그권역의 상공에 다른 공역이 설정되지 않는 한 상한고도는 없다.<br>
+    또한 관제권은 은 기본공항을 포함하여 다수 공항을 포함. 관제권을 지정하기 위해서는 항공무선 통신 및 기상관측 시설을 갖추어야 하며, 항공지도상에 운영에 관한 조건과 청색 단속선으로 표시된다. <br>
+    수평적으로 ARP 반경 5NM(9.3km) 수직적으로 AGL 0 ~ 3,000’/5,000’까지 설정할 수 있다.<br>
+    </li>
+       </ul>
+    	</div>
+    </div>
+
+    	<div id="question13" style="display:none">
+    <h4>13.프로펠러에 대한 설명으로 옳지 않는 것은? </h4><br>
+    <input type="checkbox" id="checkaw" name="문제" value="yyy" onclick="check_answer('1')">
+    	<label for="checkaw"><span>①단면이 에어포일 형태인 회전 날개의 원리로 추력을 발생</span></label><br>
+    <input type="checkbox" id="checkb2w" name="문제" value="yyy" onclick="check_answer('2')">
+    	<label for="checkb2w"><span>②프로펠러의 규격은 D x P로 나타내며 D는 피치,P는 직경을 의미 </span></label><br>
+    <input type="checkbox" id="checkc3w" name="문제" value="yyy" onclick="check_answer('3')">
+    	<label for="checkc3w"><span>③회전 방향에 따라 정피치 또는 역피치 프로펠러를 구분해서 사용 및 장착 필요</span></label><br>
+    <input type="checkbox" id="checkd4w" name="문제" value="yyy" onclick="check_answer('4')">
+    	<label for="checkd4w"><span>④프로펠러의 무게중심과 회전중심을 일치 시키는 밸런싱을 통한 진동 최소화 필요</span></label><br>
+    		<div><li class="Myfirsttest">
+    				<p> 해설보기</p>
+                    <ul class="Myfirsttestsub" style="display:none">
+    					<li><p> 프로펠러의 규격은 D x P로 나타내며 D는 직경, P는 피치를 의미한다.
+    참고로 피치는 프로펠러가 한 바퀴 회전했을 때 전진한 거리를 나타낸다.</p>
+    </li>
+       </ul>
+    	</div>
+    </div>
+
+    	<div id="question14" style="display:none">
+    <h4>14.다음 기압고도계 설정방식에 대한 설명 중 관제탑에서 제공하는 고도 압력으로 항공기의 기압고도계를 맟추는 방식으로 옳은 것은? </h4><br>
+    <input type="checkbox" id="checkae1" name="문제" value="yyy" onclick="check_answer('1')">
+    	<label for="checkae1"><span>①QNH 방식</span></label><br>
+    <input type="checkbox" id="checkbe2" name="문제" value="yyy" onclick="check_answer('2')">
+    	<label for="checkbe2"><span>②QNE 방식</span></label><br>
+    <input type="checkbox" id="checkce3" name="문제" value="yyy" onclick="check_answer('3')">
+    	<label for="checkce3"><span>③QFH 방식</span></label><br>
+    <input type="checkbox" id="checkde4" name="문제" value="yyy" onclick="check_answer('4')">
+    	<label for="checkde4"><span>④QFE 방식</span></label><br>
+    		<div><li class="Myfirsttest">
+    				<p> 해설보기</p>
+                    <ul class="Myfirsttestsub" style="display:none">
+    					<li>관제탑에서 제공하는 고도 압력으로 항공기의 기압고도계를 맞추는 방식 <br>
+    						– 진고도QNH 방식: QNH는 활주로에 착륙한 항공기 기압고도계의 눈금 숫자가 공항의 공식 표고를 나타내도록 맞춘 고도계 수정치이며, 진고도라고도 사용<br>
+    QNE 방식 : QNE는 기압고도계의 고도계 눈금 '0'점을 표준대기 29.92 / 1013hPa로 맞추는 고도계 수정치이며, 압력 고도라고도 사용<br>
+    QFE 방식 : 활주로 공식 표고 위에 착륙한 항공기의 기압고도계의 눈금을 고도 ‘0’으로 하는 고도계 수정치이며, 절대고도<br>
+    </li>
+       </ul>
+    	</div>
+    </div>
+
+    	<div id="question15" style="display:none">
+    <h4>15.다음 중 최대이륙중량이 15kg인 무인멀티콥터를 비행할 때 비행승인을 받아야 하는 공역이 아닌 것은?</h4><br>
+    <input type="checkbox" id="checkar1" name="문제" value="yyy" onclick="check_answer('1')">
+    	<label for="checkar1"><span>①관제권</span></label><br>
+    <input type="checkbox" id="checkbr2" name="문제" value="yyy" onclick="check_answer('2')">
+    	<label for="checkbr2"><span>②비행금지구역</span></label><br>
+    <input type="checkbox" id="checkcr3" name="문제" value="yyy" onclick="check_answer('3')">
+    	<label for="checkcr3"><span>③지표면에서부터 200m 고도</span></label><br>
+    <input type="checkbox" id="checkdr4" name="문제" value="yyy" onclick="check_answer('4')">
+    	<label for="checkdr4"><span>④ ①,②가 아닌 150m 미만의 구역</span></label><br>
+    		<div><li class="Myfirsttest">
+    				<p> 해설보기</p>
+                    <ul class="Myfirsttestsub" style="display:none">
+    					<li>항공안전법 제 127조 초경량비행장치 비행승인<br>
+    제2항 본문에 따른 비행승인 대상이 아닌 경우라 하더라도 다음 각 호의 어느 하나에 해당하는 경우에는 제2항의 절차에 따라 국토교통부장관의 비행승인을 받아야 한다.<br>
+    1. 제68조제1호에 따른 국토교통부령으로 정하는 고도 (→ 150m) 이상에서 비행하는 경우 <br>
+    2. 제78조제1항에 따른 관제공역ㆍ통제공역ㆍ주의공역 중 국토교통부령 으로 정하는 구역에서 비행하는 경우 (→ 관제 공역 중 관제권, 통제공역 중비행금지구역을 의미)<br>
+    즉, 관제권이나 비행금지구역이 아닌 경우 150m 미만에서는 별도의 비행승인을 받지 않아도 됩니다. <br>
+    </li>
+       </ul>
+    	</div>
+    </div>
+
+    	<div id="question16" style="display:none">
+    <h4>16.초경량비행장치가 비행 가능한 공역에 대한 설명 중 옳지 않은 것은? </h4><br>
+    <input type="checkbox" id="checkat1" name="문제" value="yyy" onclick="check_answer('1')">
+    	<label for="checkat1"><span>①관제권과 비행금지구역에서 비행하려는 경우에는 비행승인이 필요하다.</span></label><br>
+    <input type="checkbox" id="checkbt2" name="문제" value="yyy" onclick="check_answer('2')">
+    	<label for="checkbt2"><span>②이착륙장을 관리하는 자와 사전에 협의된 경우에는 이착륙장 중심으로부터 반지름 3km 밖에서 고도 500ft미만으로 비행할 수 있다.</span></label><br>
+    <input type="checkbox" id="checkct3" name="문제" value="yyy" onclick="check_answer('3')">
+    	<label for="checkct3"><span>③사람 또는 건축물이 밀집된 지역이 아닌 곳에서는 지표면,수면 또는 물건의 상단에서 150m 이상에서 비행하는 경우에는 비행승인이 필요하다.</span></label><br>
+    <input type="checkbox" id="checkdt4" name="문제" value="yyy" onclick="check_answer('4')">
+    	<label for="checkdt4"><span>④사람 또는 건축물이 밀집된 지역에서는 해당 초경량비행장치를 중심으로 수평거리 150m(500ft)범위 안에 있는 가장 높은 장애물의 상단에서 150m 이상에서 비행하는 경우에는 비행승인이 필요하다.</span></label><br>
+    		<div><li class="Myfirsttest">
+    				<p> 해설보기</p>
+                    <ul class="Myfirsttestsub" style="display:none">
+                        <li><p>항공안전법 제 127조(초경량비행장치 비행승인) 시행규칙 제 25조 2항 <br>
+    						해당 이착륙장을 관리하는 자와 사전에 협의된 경우에 한정해서 이착륙장 중심으로부터 반지름 3km 이내 지역의 고도 500ft 이내의 범위에서 비행할 수 있다<br></p>
+
+    </li>
+       </ul>
+    	</div>
+    </div>
+
+    	<div id="question17" style="display:none">
+    <h4>17.백터에 관련한 설명 중 틀린 것을 고르시오. </h4><br>
+    <input type="checkbox" id="checkaa1" name="문제" value="yyy" onclick="check_answer('1')">
+    	<label for="checkaa1"><span>①가속도</span></label><br>
+    <input type="checkbox" id="checkba2" name="문제" value="yyy" onclick="check_answer('2')">
+    	<label for="checkba2"><span>②속도</span></label><br>
+    <input type="checkbox" id="checkca3" name="문제" value="yyy" onclick="check_answer('3')">
+    	<label for="checkca3"><span>③양력</span></label><br>
+    <input type="checkbox" id="checkda4" name="문제" value="yyy" onclick="check_answer('4')">
+    	<label for="checkda4"><span>④질량</span></label><br>
+    		<div><li class="Myfirsttest">
+    				<p> 해설보기</p>
+                    <ul class="Myfirsttestsub" style="display:none">
+                        <li><p>벡터(크기/양+방향, ±음, 양) – 속도, 가속도, 중량(중력), 양력, 항력(외력), 추력, 전향력
+    						스칼라(크기/양,  +양, 절대값) - 속력, 면적, 부피, 시간, 온도, 길이, 각도 </p>
+    </li>
+       </ul>
+    	</div>
+    </div>
+
+    		<div id="question18" style="display:none">
+    <h4>18.다음 초경량비행장치 안전성 인증에 대한 설명 중 옳지 않은 것은?</h4><br>
+    <input type="checkbox" id="checkas1" name="문제" value="yyy" onclick="check_answer('1')">
+    	<label for="checkas1"><span>①초경량비행장치를 사용하여 비행하려는 사람은 국토교통부장관에게 안정성 인증을 받고 비행하여야 한다.</span></label><br>
+    <input type="checkbox" id="checkbs2" name="문제" value="yyy" onclick="check_answer('2')">
+    	<label for="checkbs2"><span>②초경량비행장치 안정성인증의 유효기간 및 절차,방법 등에 대해서는 국토교통부장관의 승인을 받아야 하며, 변경할 떄에는 해당 장비의 변경기준을 따른다.</span></label><br>
+    <input type="checkbox" id="checkcs3" name="문제" value="yyy" onclick="check_answer('3')">
+    	<label for="checkcs3"><span>③무인비행장치 안전성인증 대상은 무인비행기,무인헬리콥터 또는 무인멀티콥터 중에서 최대이륙중량이 25킬로그램을 초과하는 것을 대상으로 한다.</span></label><br>
+    <input type="checkbox" id="checkds4" name="문제" value="yyy" onclick="check_answer('4')">
+    	<label for="checkds4"><span>④초경량비행장치 안전성인증 기관은 기술원(항공안전기술원)이 주로 수행한다.</span></label><br>
+    			<div><li class="Myfirsttest">
+    				<p> 해설보기</p>
+                    <ul class="Myfirsttestsub" style="display:none">
+    					<li><p>안전성인증을 변경할 때에도 동일한 기준을 따른다.</p>
+       </ul>
+    	</div>
+    </div>
+    		<div id="question19" style="display:none">
+    <h4>19.무인기의 인적에러에 의한 사고비율은 유인기와 비교할 때 상대적으로 낮은 것으로 나타났다. 그 이유로 적절하지 않은 것은?</h4><br>
+    <input type="checkbox" id="checkad1" name="문제" value="yyy" onclick="check_answer('1')">
+    	<label for="checkad1"><span>①유인기와 비교할 때 무인기는 자동화율이 낮기 때문이다.</span></label><br>
+    <input type="checkbox" id="checkbd2" name="문제" value="yyy" onclick="check_answer('2')">
+    	<label for="checkbd2"><span>②유인기에 비해 무인기는 인간 개입의 필요성이 적기 때문이다.</span></label><br>
+    <input type="checkbox" id="checkcd3" name="문제" value="yyy" onclick="check_answer('3')">
+    	<label for="checkcd3"><span>③무인기는 아직까지 기계적 신뢰성이 낮기 때문이다.</span></label><br>
+    <input type="checkbox" id="checkdd4" name="문제" value="yyy" onclick="check_answer('4')">
+    	<label for="checkdd4"><span>④설계 개념상 Fail-safe 개념의 시스템 이중설계 적용이 미흡하기 때문이다.</span></label><br>
+    			<div><li class="Myfirsttest">
+    				<p> 해설보기</p>
+                    <ul class="Myfirsttestsub" style="display:none">
+    					<li><p>무인기가 유인기에 비해 자동화율이 높다. </p>
+    </li>
+       </ul>
+    	</div>
+    </div>
+    		<div id="question20" style="display:none">
+    <h4>20.인적요인의 대표적 모델인 쉘 모델의 구성요소가 아닌 것은 무엇인가?</h4><br>
+    <input type="checkbox" id="checkaf1" name="문제" value="yyy" onclick="check_answer('1')">
+    	<label for="checkaf1"><span>①Liveware</span></label><br>
+    <input type="checkbox" id="checkbf2" name="문제" value="yyy" onclick="check_answer('2')">
+    	<label for="checkbf2"><span>②Software</span></label><br>
+    <input type="checkbox" id="checkcf3" name="문제" value="yyy" onclick="check_answer('3')">
+    	<label for="checkcf3"><span>③Human</span></label><br>
+    <input type="checkbox" id="checkdf4" name="문제" value="yyy" onclick="check_answer('4')">
+    	<label for="checkdf4"><span>④Environment</span></label><br>
+    			<div><li class="Myfirsttest">
+    				<p> 해설보기</p>
+                    <ul class="Myfirsttestsub" style="display:none">
+                        <li>SHELL모델은 Hawkins가 1993년에 발견한 모델로 <br><br>
+    S(Software) : 무인비행기 운용과 관련된 법규, 매뉴얼, 체크리스트 등 운용관련 컴퓨터 프로그램<br>
+    H(Hardware) : 무인비행기의 기체, 임무장비, 관제장비, 부수 장비<br>
+    E(Enviroment) : 기상환경, 기후환경, 물리적 장애, 지리적 장애<br>
+    L(Liveware) : 인간 즉, 운항승무원(항공관제사, 항공정비사 등 주어진 임무를 주도적으로 수행하는 사람)<br>
+    L(Liveware) : 인간을 의미, 임무주체와의 협력과 협동을 통해 임무완수를 지원하는 관계<br>
+    </li>
+       </ul>
+    	</div>
+    </div>
+
+    <button onclick="" id="click"style="    font-size: 33px;
+        border: 5px solid #c2c2c2;
+        float: right;
+        position: relative;
+        top: -60px;
+    "> 다음 </button>
+    			<button onclick="" id="clickbefore"style="    font-size: 33px;
+        border: 5px solid #c2c2c2;
+        float: left;
+        position: relative;
+        top: -60px;
+    "> 이전 </button>
+
+    	<div id="quizScore" style="display:none">
+
+    </div>
+
+    </div>
+
+
+
+    	<script>
+
+                $(".Myfirsttest").click(function(){
+                    if($(".Myfirsttestsub").is(":visible")){
+                        $(".Myfirsttestsub").slideUp();
+                    }
+                    else {
+                        $(".Myfirsttestsub").slideDown();
+                    }
+                })
+
+    </script>
+
+
+
+    <a name="tag1">		<!-- 라이브리 시티 설치 코드 -->
+    <div id="lv-container" data-id="city" data-uid="MTAyMC81Mjc3My8yOTI1MA==">
+    	<script type="text/javascript">
+    					window.livereOptions = {
+    		refer: 'function/dronetest.html[##_article_rep_link_##]'
+    	};
+       (function(d, s) {
+           var j, e = d.getElementsByTagName(s)[0];
+
+           if (typeof LivereTower === 'function') { return; }
+
+           j = d.createElement(s);
+           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+           j.async = true;
+
+           e.parentNode.insertBefore(j, e);
+       })(document, 'script');
+    	</script>
+    <noscript> 라이브리 댓글 작성을 위해 JavaScript를 활성화 해주세요</noscript>
+    </div></a>
+    <!-- 시티 설치 코드 끝 -->
